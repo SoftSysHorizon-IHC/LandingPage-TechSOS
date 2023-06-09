@@ -1,1 +1,259 @@
+* {
+    font-family: "IBM Plex Sans", SansSerif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+footer {
+    width: 100%;
+}
+
+
+/* Navigation Bar */
+.nav-container {
+    max-width: 1124px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    height: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 4px;
+}
+
+.logo-image {
+    width: 100px;
+}
+
+.nav-toggle {
+    display: flex;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-list {
+    padding: 5rem 0 0 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+}
+
+.nav-link {
+    color: black;
+    transition: color .3s;
+}
+
+.nav-link:hover {
+    color: #e49e00;
+}
+
+.nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* Change language button */
+.es,
+.en {
+    color: #3ebdde;
+    font-weight: 500;
+}
+
+.check {
+    cursor: pointer;
+    position: relative;
+    width: 52px;
+}
+
+.check:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #333;
+    border-radius: 25px;
+}
+
+.check:after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border-radius: 25px;
+    transition: 0.25s;
+    border: 2px solid #333;
+    box-sizing: border-box;
+}
+
+.check:checked:after {
+    left: 25px;
+    border: 2px solid #00a1ff;
+}
+
+.check:checked:before {
+    background: #00a1ff;
+}
+
+@media screen and (max-width: 1023px) {
+    .nav-menu {
+        position: fixed;
+        background-color: white;
+        top: 0;
+        right: -100%;
+        width: 50%;
+        height: 100%;
+
+        transition: right .3s;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .nav-menu {
+        position: fixed;
+        background-color: transparent;
+        right: 24px;
+    }
+    .nav-link {
+        font-weight: 500;
+        color: #000000;
+        font-size: 16px;
+    }
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        column-gap: 24px;
+        padding: 0px;
+    }
+    .nav-toggle,
+    .nav-close{
+        display: none;
+    }
+    .es,
+    .en {
+        color: #000000;
+        font-weight: 500;
+    }
+}
+
+.show-menu {
+    right: 0;
+}
+
+
+
+
+/* Hero Section */
+.hero-section {
+    padding: 4.5rem 0 2rem;
+    background-color: #656565;
+}
+
+.hero-container {
+    max-width: 100%;
+    display: flex;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    row-gap: 3rem;
+    flex-direction: column;
+}
+
+.hero-info {
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 30px;
+    color: #3EBDDE;
+    text-align: center;
+}
+
+.description-hero {
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.description{
+    font-weight: 400;
+    width: 1000px;
+    margin-bottom: 2.5rem;
+    color: #000000;
+    text-align: center;
+}
+
+.hero-button {
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    border-radius: 20px;
+    letter-spacing: 0.25px;
+    background-color: #044fc4;
+    cursor: pointer;
+    box-shadow: 1px 1px 8px #6898C7;
+    transition: 0.5s;
+}
+
+.hero-button:hover {
+    background-color: #307fff;
+}
+
+@media screen and (min-width: 1024px) {
+    .hero-container {
+        max-width: none;
+        text-align: center;
+        margin-left: 4.5rem;
+        margin-right: 4.5rem;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .description {
+        font-size: 20px;
+    }
+
+    .hero-info {
+        text-align: center;
+    }
+
+    .hero-button {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
