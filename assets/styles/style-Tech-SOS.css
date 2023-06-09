@@ -303,4 +303,78 @@ footer {
     font-size: 20px;
     text-align: center;
 }
+/* Pricing Section */
+
+.pricing-section {
+    padding-top: 15px;
+    padding-bottom: 40px;
+    background-color: #D4E7FA;
+}
+
+.pricing-container {
+    max-width: 1124px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pricing-plans {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 48px;
+    padding-top: 40px;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 320px;
+    height: 270px;
+    background-color: white;
+    box-shadow: 1px 1px 10px #3F5B78;
+    padding: 32px 32px 32px 32px;
+    row-gap: 24px;
+    border-radius: 30px;
+}
+
+.benefit-item-card {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    column-gap: 14px;
+}
+
+.button-card{
+    cursor: pointer;
+    padding: 12px 20%;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #6898C7;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+.button-card:hover {
+    background-color: #3F5B78;
+}
+
+@media screen and (min-width: 1024px) {
+    .pricing-container {
+        max-width: none;
+        align-items: center;
+    }
+
+    .pricing-plans {
+        flex-direction: row;
+        column-gap: 124px;
+    }
+}
 
