@@ -378,3 +378,94 @@ footer {
     }
 }
 
+
+/* About The App Section */
+.aboutTheApp-section {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.aboutTheApp-container {
+    max-width: 1124px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutTheApp-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutTheApp-video {
+    width: 100%;
+    height: 40vh;
+}
+
+/* Download Buttons */
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+.download {
+    width: 200px;
+    height: 75px;
+    background: black;
+    float: left;
+    border-radius: 5px;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.download > .fa {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.df,
+.dfn {
+    position: absolute;
+    left: 80px;
+}
+
+.df {
+    top: 20px;
+    font-size: .68em;
+}
+
+.dfn {
+    top: 33px;
+    font-size: 1.08em;
+}
+
+.download:hover {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+@media screen and (min-width: 1024px) {
+    .aboutTheApp-container {
+        max-width: none;
+        flex-direction: row-reverse;
+        column-gap: 64px;
+    }
+    .download-buttons {
+        flex-direction: row;
+        column-gap: 24px;
+    }
+    .description {
+        text-align: left;
+    }
+    .aboutTheApp-video {
+        height: 50vh;
+    }
+}
+
