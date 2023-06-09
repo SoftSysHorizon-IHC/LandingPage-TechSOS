@@ -656,4 +656,208 @@ footer {
         -moz-box-shadow: -2px 9px 13px -1px rgba(0,0,0,0.81);
     }
 }
+/* About The App Team */
+
+.aboutTheTeam-section {
+    background-color: #e5edf6;
+    padding-top: 15PX;
+    padding-bottom: 20PX;
+}
+
+.title-about-the-team {
+    color: #3EBDDE;
+    font-size: 40px;
+    text-align: center;
+}
+
+.aboutTheTeam-container {
+    max-width: 1124px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutTheTeam-video {
+    width: 100%;
+    height: 60vh;
+}
+@media screen and (min-width: 1024px) {
+    .aboutTheTeam-container {
+        max-width: none;
+    }
+    .aboutTheTeam-video {
+        width: 50%;
+    }
+}
+
+
+
+/*Footer*/
+.footer
+{
+    background: #3F5B78;
+    color: white;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+}
+
+.container-body
+{
+    display: flex;
+    padding: 20px;
+}
+
+.column1
+{
+    padding-top: 20px;
+    width: 400px;
+    max-width: 100%;
+    align-content: center;
+}
+
+.logo-image-footer {
+    width: 200px;
+}
+.column2
+{
+    padding-top: 40px;
+    max-width: 400px;
+    width: 100%;
+    align-content: center;
+}
+
+.nav-footer
+{
+    display: flex;
+    align-items: center;
+
+}
+
+.column2 .row
+{
+    display: flex;
+    padding-top: 10px;
+    align-content: center;
+}
+
+.row img
+{
+    width: 30px;
+    height: 30px;
+
+}
+
+.row label
+{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.column3
+{
+    text-align: left;
+    line-height: 2;
+    align-content: center;
+}
+
+.column3 .options li{
+    width: max-content;
+}
+
+.options-item a
+{
+    margin: 4px;
+    font: normal 16px Archivo;
+    max-width: max-content;
+}
+
+.column4
+{
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    align-content: center;
+}
+
+.nets
+{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.nets img
+{
+    width: 35px;
+    height: 35px;
+}
+
+.nets a:hover
+{
+    color: transparent;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.download-footer
+{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.download-footer img
+{
+    width: 100px;
+    margin: 5px;
+}
+
+.download-footer a:hover
+{
+    color: transparent;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+@media (max-width: 900px)
+{
+    .container-body
+    {
+        flex-wrap: wrap;
+    }
+
+    .column4
+    {
+        width: 100%;
+        max-width: 400px;
+        text-align: left;
+        align-content: center;
+
+    }
+
+    .nets
+    {
+        justify-content: left;
+    }
+
+    .download-footer
+    {
+        justify-content: left;
+    }
+}
+
+@media (max-width: 450px)
+{
+    .container-body
+    {
+        width: 100%;
+    }
+    body
+    {
+        width:130%;
+        box-sizing: border-box;
+    }
+}
+
 
