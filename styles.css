@@ -1010,3 +1010,239 @@ se aplicarán los siguientes cambios.*/
 .play-store {
   margin-top: 10px;
 }
+
+
+ /*Acerca de*/
+  #acerca-techsos .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  #acerca-techsos h2 {
+    text-align: center;
+    width: 100%;
+  }
+  
+  #acerca-techsos .aboutTheApp-video {
+    flex-basis: 50%;
+  }
+  
+  #acerca-techsos .texto {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  #acerca-techsos .texto h2 {
+    margin-bottom: 20px;
+  }
+
+  
+  #acerca-techsos p{
+    padding: 30px 30px; 
+  }
+  
+  #acerca-techsos iframe{
+    height: 50vh;
+  }
+
+
+
+  #acerca-techsos .logos {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacio entre los logos */
+  }
+  
+  #acerca-techsos .logos img {
+    max-width: 100%;
+  }
+  
+  #acerca-techsos .logos .play-store {
+    margin-left: 470px;
+  }
+
+    
+  #acerca-techsos .logos .app-store {
+    margin-right: 400px;
+  }
+  
+  @media (max-width: 1250px) {
+    #acerca-techsos .logos {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    #acerca-techsos .logos .play-store {
+      margin-left: 0;
+    }
+  
+      
+    #acerca-techsos .logos .app-store {
+      margin-right: 0;
+    }
+    
+    #acerca-techsos .logos img {
+      max-width: 100%;
+      margin: 0 5px;
+    }
+    
+    #acerca-techsos .play-store {
+      margin-right: 5px; 
+    }
+  }
+
+
+
+  /* Testimonios */
+  #testimonios-techsos .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #testimonios-techsos h2 {
+    margin-bottom: 20px;
+  }
+
+  #testimonios-techsos .testimonios {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las cartas de testimonio */
+  }
+
+  #testimonios-techsos .carta3 {
+    flex-basis: 400px;
+    background-color: rgba(58, 58, 58, 0.838);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #testimonios-techsos .carta3 .image-person {
+    width: 200px;
+    height: 90px;
+    border-radius: 70%;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  #testimonios-techsos .image-person img {
+    width: 100%;
+    border-radius: 60%;
+    object-fit: cover;
+  }
+
+
+
+  #testimonios-techsos .comentario h3 {
+    margin-top: 10px;
+  }
+
+  #testimonios-techsos .comentario p {
+    margin-bottom: 10px;
+  }
+
+
+
+
+
+  /* Contacto */
+  #contacto-techsos .formulario-techsos {
+    justify-content: space-between; /* Alinear el formulario y la imagen en los extremos */
+  }
+  
+  #contacto-techsos .image-container {
+    flex: 1; /* Ocupar la mitad del ancho disponible */
+    display: flex; /* Mostrar la imagen */
+    justify-content: flex-end; /* Alinear la imagen a la derecha */
+  }
+  
+  #contacto-techsos .form-container {
+    flex: 1; /* Ocupar la otra mitad del ancho disponible */
+    padding-right: 50px; /* Espacio derecho para separar el formulario de la imagen */
+  }
+
+  #contacto-techsos .image-container img {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen al tamaño del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto original de la imagen */
+  }
+  
+  #contacto-techsos p{
+    padding-bottom: 10px;
+  }
+
+
+
+  /* Nosotros */
+  #nosotros-techsos  iframe{
+    padding: 0 20px;
+    width: 70%;
+    height: 60vh;
+  }
+   
+
+
+  /* Footer */
+  .container-body {
+    flex-direction: row;
+  }
+
+  .column1 {
+    flex-basis: 25%;
+  }
+
+  .column2,
+  .column3,
+  .column4 {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .row img {
+    margin-right: 10px;
+  }
+
+  .column4 .title {
+    margin-bottom: 10px;
+  }
+
+  .nets {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .nets li {
+    margin-right: 10px;
+  }
+
+  .download-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    margin-right: 120px;
+  }
+
+  .download-footer li {
+    margin-left: 10px;
+  }
+}
