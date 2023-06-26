@@ -173,3 +173,59 @@
 #testimonios-techsos .carta3:hover {
     box-shadow: none;
 }
+
+/*Contacto*/
+.dark-mode #contacto-techsos {
+    background-color: #202020;
+    color: rgb(255, 255, 255,0.7); 
+}
+
+.dark-mode .form h1 {
+    color: rgb(255, 255, 255,0.9); 
+}
+
+.dark-mode .formulario-techsos .form {
+    background-color: #555555;
+    box-shadow: none;
+}
+
+
+.dark-mode .btn-submit {
+    color: rgb(82, 82, 82);
+    background-color: rgb(255, 255, 255,0.7);
+}
+
+.dark-mode .btn-submit:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+
+
+
+/*Sobre Nosotros*/
+.dark-mode #nosotros-techsos {
+    background-color: #202020;
+}
+.dark-mode #nosotros-techsos h2 {
+    color: rgb(255, 255, 255,0.7); 
+}
+
+
+/*Footer*/
+.dark-mode #footer-techsos {
+    background-color: #2a2a2a;
+}
+
+@media (min-width: 720px) {
+    .dark-mode #precios-techsos .carta2:first-child:hover {
+        box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+    }
+    
+    .dark-mode #precios-techsos .carta2:nth-child(2):hover {
+        box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+    }
+    
+    .dark-mode #precios-techsos .carta2:last-child:hover {
+        box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+    }
+}
