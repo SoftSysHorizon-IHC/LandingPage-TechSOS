@@ -1,1 +1,26 @@
 
+.dark-mode header{
+    background-color:  #2a2a2a;
+}
+
+.dark-mode header .logo{ 
+    /*filter: brightness(35%) invert(100%);*/
+    opacity: 0.9;
+}
+
+.dark-mode header a{
+    color: rgb(255, 255, 255,0.8);
+}
+
+.dark-mode header a:hover{
+    color: rgba(146, 146, 255, 0.929);
+}
+
+.dark-mode #dark-mode-button{
+    filter: invert(1); 
+}
+
+.dark-mode #hero h1{ 
+    color: rgb(255, 255, 255,0.9);
+}
+
