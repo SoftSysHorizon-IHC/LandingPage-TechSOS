@@ -238,3 +238,236 @@ input:checked + .slider:before {
 .ingles{
   padding-bottom: 25px;
 }
+
+/*Beneficios*/
+#beneficios-techsos{
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#beneficios-techsos h2{
+  color: rgb(0, 0, 0);
+}
+
+#beneficios-techsos .container{
+ /*padding: 150px 12px;*/
+  padding: 200px 0 12px 12px
+}
+
+#beneficios-techsos h2 {
+  margin-top: 0;
+  font-size: 2.0em;
+}
+
+#beneficios-techsos p {
+  color: rgb(0, 0, 0);
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+
+#beneficios-techsos  .carta{
+  background-size: cover;
+  background-position: center center;
+
+  padding: 50px;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+/*Selecciona la primer "carta" de las 3 creadas*/
+.carta:first-child {
+  /*Aplicando el gradiente - Overlay*/
+  background-image: linear-gradient(
+      0deg,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.7)
+  ), url('assets/images/benefit-seguro-crop.png');
+}
+
+/*Selecciona la segunda "carta" de las 3 creadas*/
+.carta:nth-child(2) {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.7)
+  ), url("assets/images/benefit-map-crop.png");
+}   
+
+/*Selecciona la segunda "carta" de las 3 creadas
+.carta:nth-child(3) --> da el mismo resultado*/
+.carta:last-child {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.7)
+  ), url("assets/images/benefit-status-crop.png");
+}
+
+.beneficios{
+  text-align: center;
+  padding: 20px 1px;
+}
+
+.beneficios li{
+  padding: 15px 0px;
+  font-weight: bold;
+  margin-left: -25px;
+}
+
+.beneficios li::before {
+  content: "\2714"; /* Código del emoji de checkmark */
+  color: rgb(137, 255, 137); /* Color del emoji */
+  margin-right: 5px; /* Espacio entre el emoji y el texto */
+}
+
+
+
+
+
+/*Precios*/
+#precios-techsos{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#precios-techsos .container{
+  padding: 200px 0 12px 12px
+}
+
+#precios-techsos h2 {
+  margin-top: 0;
+  padding-bottom: 30px;
+  font-size: 2.0em;
+}
+
+
+#precios-techsos  p {
+  
+  /*display: none;*/
+  padding-bottom: 40px; 
+}
+
+#precios-techsos .carta2{
+  background-size: cover;
+  background-position: center center;
+
+  padding: 50px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.carta2:first-child {
+    background-image: linear-gradient(
+        0deg,
+        rgb(255, 255, 255),
+        rgb(255, 255, 255)
+    ), url("");
+
+    border-radius: 5px;
+    border: 2px solid rgba(178, 178, 178, 0.522);
+}
+
+.carta2:nth-child(2) {
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255),
+      rgb(255, 255, 255)
+  ), url("");
+
+  border-radius: 5px;
+  border: 2px solid rgba(178, 178, 178, 0.522);
+}   
+
+.carta2:last-child {
+    background-image: linear-gradient(
+      0deg,
+      rgb(255, 255, 255),
+      rgb(255, 255, 255)
+  ), url("");
+
+  border-radius: 5px;
+  border: 2px solid rgba(178, 178, 178, 0.522);
+}
+
+.precios .carta2:first-child button{
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 8px;
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
+  background-color: rgba(2, 238, 85, 0.522);
+}
+
+.precios .carta2:nth-child(2) button{
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 8px;
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
+  background-color: rgb(238, 228, 134);
+}
+
+
+.precios .carta2:last-child button{
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 8px;
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
+  background-color: rgba(109, 176, 227, 0.654);
+}
+
+/*Personalización de título de los precios*/
+.precios .carta2:first-child h3{
+  color: rgba(0, 199, 70, 0.878);
+}
+
+.precios .carta2:nth-child(2) h3{
+  color: rgb(224, 210, 78);
+}
+
+.precios .carta2:last-child h3{
+  color: rgba(81, 155, 211, 0.654);
+}
+
+
+/*Personalización de botones*/
+.precios .carta2:first-child button:hover{
+  font-size: 1.50em;
+  background-color: rgba(0, 255, 89, 0.495);
+}
+
+.precios .carta2:nth-child(2) button:hover{
+  font-size: 1.50em;
+  background-color: rgb(255, 244, 142);
+}
+
+
+.precios .carta2:last-child button:hover{
+  font-size: 1.50em;
+  background-color: rgba(147, 208, 255, 0.654);
+}
+
+
+/*Personalización de bordes*/
+.carta2:first-child:hover {
+  border: 3px solid rgba(54, 224, 114, 0.495);
+}
+
+.carta2:nth-child(2):hover{
+  border: 3px solid rgb(243, 232, 134);
+}   
+
+.carta2:last-child:hover {
+  border: 3px solid rgba(124, 185, 231, 0.654);
+}
+
