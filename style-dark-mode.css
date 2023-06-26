@@ -24,3 +24,36 @@
     color: rgb(255, 255, 255,0.9);
 }
 
+/*Beneficios*/
+.dark-mode #beneficios-techsos{
+    background-color: #202020;
+    color: #2a2a2a;
+}
+
+.dark-mode #beneficios-techsos h2{
+    color: rgb(255, 255, 255,0.7);
+}
+
+.dark-mode #beneficios-techsos p{
+    color: rgb(255, 255, 255,0.7);
+}
+
+.dark-mode .beneficios li{
+    color: rgb(255, 255, 255,0.7);
+}
+
+.dark-mode #beneficios-techsos .carta{
+    padding-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0);  
+}
+
+@media (min-width: 720px) {
+
+    .dark-mode .carta:first-child{
+        background-image: url("assets/images/benefit-seguro-darkmode.png")
+    }
+
+    .dark-mode .carta:last-child{
+        background-image: url("assets/images/benefit-status-darkmode.png")
+    }
+}
