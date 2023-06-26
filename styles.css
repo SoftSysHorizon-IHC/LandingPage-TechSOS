@@ -471,3 +471,261 @@ input:checked + .slider:before {
   border: 3px solid rgba(124, 185, 231, 0.654);
 }
 
+/*Acerca De*/
+#acerca-techsos .container{
+  text-align: center;
+  padding: 200px 0 12px 12px
+}
+
+#acerca-techsos p {
+  padding: 30px 50px;
+}
+
+
+#acerca-techsos iframe{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 80%;
+  height: 40vh;
+}
+
+#acerca-techsos iframe:hover{
+  opacity: 0.9;
+}
+
+#acerca-techsos .logos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#acerca-techsos .logos img{
+  width: 200px;
+  margin: 10px;
+}
+
+#acerca-techsos .logos .play-store:hover{
+  opacity: 0.8; /* Reducir la opacidad al 80% */
+  transform: scale(1.1); /* Aumentar la escala al 110% */
+}
+
+#acerca-techsos .logos .app-store:hover{
+  opacity: 0.8; /* Reducir la opacidad al 80% */
+  transform: scale(1.1); /* Aumentar la escala al 110% */
+}
+
+
+
+
+
+
+
+
+/*Testimonios*/
+
+#testimonios-techsos {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#testimonios-techsos .container {
+  padding: 200px 0 12px 12px;
+  width: 80%;
+}
+
+#testimonios-techsos h2 {
+  margin-top: 0;
+  font-size: 2.2em;
+}
+
+#testimonios-techsos .carta3 {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgba(38, 38, 38, 0.838);
+
+  /*Transición*/
+  transition: transform 0.3s ease;
+}
+
+#testimonios-techsos .carta3 .image-person {
+  width: 200px;
+  height: 90px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+#testimonios-techsos .carta3 .image-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#testimonios-techsos .carta3 .comentario h3,
+#testimonios-techsos .carta3 .comentario p {
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+
+#testimonios-techsos .carta3 .comentario h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 5px;
+}
+
+#testimonios-techsos .carta3 .comentario p {
+  font-size: 0.9em;
+}
+
+#testimonios-techsos .carta3 .comentario .rol {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+#testimonios-techsos .carta3 p:last-child {
+  margin-top: 10px;
+}
+
+#testimonios-techsos .carta3:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 10px rgb(198, 198, 198);
+}
+
+
+
+/*Contacto*/
+#contacto-techsos .container {
+  text-align: center;
+  padding: 200px 0 12px 12px
+}
+
+#contacto-techsos .title-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+label{
+  padding: 10px;
+}
+#contacto-techsos h2 {
+  margin-top: 0;
+  font-size: 2.2em;
+}
+
+#contacto-techsos p {
+  font-size: 1.1em;
+}
+
+#contacto-techsos .formulario-techsos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contacto-techsos .image-container {
+  display: none;
+  /*
+  max-width: 100%;
+  height: auto;*/
+}
+
+.formulario-techsos .form-container {
+  flex: 1;
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.formulario-techsos .image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario-techsos .form {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  box-shadow: 0 2px 6px rgba(80, 80, 80, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.formulario-techsos .form:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 57, 110, 0.5);
+}
+
+.form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #489af8; /* Color del título del formulario */
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #1968d6; /* Color del borde al enfocar el campo de entrada */
+}
+
+.btn-submit {
+  background-color: #1e488b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-submit:hover {
+  background-color: #5ea8ce;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+.formulario-techsos {
+  display: flex;
+  align-items: center;
+}
+
+.form-container {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.form {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 10px;
+}
