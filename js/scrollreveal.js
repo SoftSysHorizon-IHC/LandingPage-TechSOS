@@ -752,5 +752,307 @@
         }
     }                
                      
+/**
+   * apply a CSS string to an element using the CSSOM (element.style) rather
+   * than setAttribute, which may violate the content security policy.
+   *
+   * @param {Node}   [el]  Element to receive styles.
+   * @param {string} [declaration] Styles to apply.
+   */
+  function applyStyle (el, declaration) {
+    declaration.split(';').forEach(function (pair) {
+      var ref = pair.split(':');
+      var property = ref[0];
+      var value = ref.slice(1);
+      if (property && value) {
+        el.style[property.trim()] = value.join(':');
+      }
+    });
+  }
 
+  function clean(target) {
+    var this$1 = this;
+
+    var dirty;
+    try {
+      each(tealight(target), function (node) {
+        var id = node.getAttribute('data-sr-id');
+        if (id !== null) {
+          dirty = true;
+          var element = this$1.store.elements[id];
+          if (element.callbackTimer) {
+            window.clearTimeout(element.callbackTimer.clock);
+          }
+          applyStyle(element.node, element.styles.inline.generated);
+          node.removeAttribute('data-sr-id');
+          delete this$1.store.elements[id];
+        }
+      });
+    } catch (e) {
+      return logger.call(this, 'Clean failed.', e.message)
+    }
+
+    if (dirty) {
+      try {
+        rinse.call(this);
+      } catch (e) {
+        return logger.call(this, 'Clean failed.', e.message)
+      }
+    }
+  }
+
+  function destroy() {
+    var this$1 = this;
+
+    /**
+     * Remove all generated styles and element ids
+     */
+    each(this.store.elements, function (element) {
+      applyStyle(element.node, element.styles.inline.generated);
+      element.node.removeAttribute('data-sr-id');
+    });
+
+    /**
+     * Remove all event listeners.
+     */
+    each(this.store.containers, function (container) {
+      var target =
+        container.node === document.documentElement ? window : container.node;
+      target.removeEventListener('scroll', this$1.delegate);
+      target.removeEventListener('resize', this$1.delegate);
+    });
+
+    /**
+     * Clear all data from the store
+     */
+    this.store = {
+      containers: {},
+      elements: {},
+      history: [],
+      sequences: {}
+    };
+  }
+
+  function deepAssign(target) {
+    var sources = [], len = arguments.length - 1;
+    while ( len-- > 0 ) sources[ len ] = arguments[ len + 1 ];
+
+    if (isObject(target)) {
+      each(sources, function (source) {
+        each(source, function (data, key) {
+          if (isObject(data)) {
+            if (!target[key] || !isObject(target[key])) {
+              target[key] = {};
+            }
+            deepAssign(target[key], data);
+          } else {
+            target[key] = data;
+          }
+        });
+      });
+      return target
+    } else {
+      throw new TypeError('Target must be an object literal.')
+    }
+  }
+
+  function isMobile(agent) {
+    if ( agent === void 0 ) agent = navigator.userAgent;
+
+    return /Android|iPhone|iPad|iPod/i.test(agent)
+  }
+
+  var nextUniqueId = (function () {
+    var uid = 0;
+    return function () { return uid++; }
+  })();
+
+  function initialize() {
+    var this$1 = this;
+
+    rinse.call(this);
+
+    each(this.store.elements, function (element) {
+      var styles = [element.styles.inline.generated];
+
+      if (element.visible) {
+        styles.push(element.styles.opacity.computed);
+        styles.push(element.styles.transform.generated.final);
+        element.revealed = true;
+      } else {
+        styles.push(element.styles.opacity.generated);
+        styles.push(element.styles.transform.generated.initial);
+        element.revealed = false;
+      }
+
+      applyStyle(element.node, styles.filter(function (s) { return s !== ''; }).join(' '));
+    });
+
+    each(this.store.containers, function (container) {
+      var target =
+        container.node === document.documentElement ? window : container.node;
+      target.addEventListener('scroll', this$1.delegate);
+      target.addEventListener('resize', this$1.delegate);
+    });
+
+    /**
+     * Manually invoke delegate once to capture
+     * element and container dimensions, container
+     * scroll position, and trigger any valid reveals
+     */
+    this.delegate();
+
+    /**
+     * Wipe any existing `setTimeout` now
+     * that initialization has completed.
+     */
+    this.initTimeout = null;
+  }
+
+  function animate(element, force) {
+    if ( force === void 0 ) force = {};
+
+    var pristine = force.pristine || this.pristine;
+    var delayed =
+      element.config.useDelay === 'always' ||
+      (element.config.useDelay === 'onload' && pristine) ||
+      (element.config.useDelay === 'once' && !element.seen);
+
+    var shouldReveal = element.visible && !element.revealed;
+    var shouldReset = !element.visible && element.revealed && element.config.reset;
+
+    if (force.reveal || shouldReveal) {
+      return triggerReveal.call(this, element, delayed)
+    }
+
+    if (force.reset || shouldReset) {
+      return triggerReset.call(this, element)
+    }
+  }
+
+  function triggerReveal(element, delayed) {
+    var styles = [
+      element.styles.inline.generated,
+      element.styles.opacity.computed,
+      element.styles.transform.generated.final
+    ];
+    if (delayed) {
+      styles.push(element.styles.transition.generated.delayed);
+    } else {
+      styles.push(element.styles.transition.generated.instant);
+    }
+    element.revealed = element.seen = true;
+    applyStyle(element.node, styles.filter(function (s) { return s !== ''; }).join(' '));
+    registerCallbacks.call(this, element, delayed);
+  }
+
+  function triggerReset(element) {
+    var styles = [
+      element.styles.inline.generated,
+      element.styles.opacity.generated,
+      element.styles.transform.generated.initial,
+      element.styles.transition.generated.instant
+    ];
+    element.revealed = false;
+    applyStyle(element.node, styles.filter(function (s) { return s !== ''; }).join(' '));
+    registerCallbacks.call(this, element);
+  }
+
+  function registerCallbacks(element, isDelayed) {
+    var this$1 = this;
+
+    var duration = isDelayed
+      ? element.config.duration + element.config.delay
+      : element.config.duration;
+
+    var beforeCallback = element.revealed
+      ? element.config.beforeReveal
+      : element.config.beforeReset;
+
+    var afterCallback = element.revealed
+      ? element.config.afterReveal
+      : element.config.afterReset;
+
+    var elapsed = 0;
+    if (element.callbackTimer) {
+      elapsed = Date.now() - element.callbackTimer.start;
+      window.clearTimeout(element.callbackTimer.clock);
+    }
+
+    beforeCallback(element.node);
+
+    element.callbackTimer = {
+      start: Date.now(),
+      clock: window.setTimeout(function () {
+        afterCallback(element.node);
+        element.callbackTimer = null;
+        if (element.revealed && !element.config.reset && element.config.cleanup) {
+          clean.call(this$1, element.node);
+        }
+      }, duration - elapsed)
+    };
+  }
+
+  function sequence(element, pristine) {
+    if ( pristine === void 0 ) pristine = this.pristine;
+
+    /**
+     * We first check if the element should reset.
+     */
+    if (!element.visible && element.revealed && element.config.reset) {
+      return animate.call(this, element, { reset: true })
+    }
+
+    var seq = this.store.sequences[element.sequence.id];
+    var i = element.sequence.index;
+
+    if (seq) {
+      var visible = new SequenceModel(seq, 'visible', this.store);
+      var revealed = new SequenceModel(seq, 'revealed', this.store);
+
+      seq.models = { visible: visible, revealed: revealed };
+
+      /**
+       * If the sequence has no revealed members,
+       * then we reveal the first visible element
+       * within that sequence.
+       *
+       * The sequence then cues a recursive call
+       * in both directions.
+       */
+      if (!revealed.body.length) {
+        var nextId = seq.members[visible.body[0]];
+        var nextElement = this.store.elements[nextId];
+
+        if (nextElement) {
+          cue.call(this, seq, visible.body[0], -1, pristine);
+          cue.call(this, seq, visible.body[0], +1, pristine);
+          return animate.call(this, nextElement, { reveal: true, pristine: pristine })
+        }
+      }
+
+      /**
+       * If our element isn’t resetting, we check the
+       * element sequence index against the head, and
+       * then the foot of the sequence.
+       */
+      if (
+        !seq.blocked.head &&
+        i === [].concat( revealed.head ).pop() &&
+        i >= [].concat( visible.body ).shift()
+      ) {
+        cue.call(this, seq, i, -1, pristine);
+        return animate.call(this, element, { reveal: true, pristine: pristine })
+      }
+
+      if (
+        !seq.blocked.foot &&
+        i === [].concat( revealed.foot ).shift() &&
+        i <= [].concat( visible.body ).pop()
+      ) {
+        cue.call(this, seq, i, +1, pristine);
+        return animate.call(this, element, { reveal: true, pristine: pristine })
+      }
+    }
+  }
                      
