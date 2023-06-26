@@ -1,1 +1,240 @@
 
+/*VERSION MOBILES*/
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+}
+
+h1{font-size: 3.5em; font-family: 'IBM Plex Sans', sans-serif;}
+h2{font-size: 2.7em; font-family: 'IBM Plex Sans', sans-serif;}
+h3{font-size: 2em;   font-family: 'IBM Plex Sans', sans-serif;}
+p{font-size: 1.25em;}
+ul{list-style-type: none;}
+li{font-size: 1.25em;}
+
+
+button{
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: rgb(58, 58, 251);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(255, 255, 255, 0);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+button:hover{
+  background-color: rgb(78, 78, 253);
+  transform: scale(1.05);
+  box-shadow: 4px 4px 20px rgba(180, 180, 180, 0.7);
+}
+
+button:hover::before {
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 1400px;
+  margin:auto;
+}
+
+header{background-color: rgb(245,245,245);}
+
+header .logo{ 
+    margin: 0; 
+    padding: 5px 30px;
+    width: 135px;
+}
+
+
+/*Para centrar toda la barra de navegación*/
+header .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header nav{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+header a{
+  padding: 5px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+header a:hover{
+  color: rgb(36, 36, 229);
+}
+
+.spain{
+  padding-top: 25px;
+}
+
+header{
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+
+
+#hero{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0,0,0,0.8),
+      rgba(0,0,0,0.8)
+  ), url("assets/images/fondo-main.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#hero h1{ 
+  color: white; font-size: 2.8em;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+
+#hero p {
+  color: white; 
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 40px;
+}
+
+#hero button{
+    font-size: 1.75em;
+}
+
+
+
+
+/*Estilos para el Switch*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-left: 30px;
+  transition: background-color 1s;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 1s;
+}
+
+input:checked + .slider {
+  background-color: #65e869;
+  transition: background-color 1s;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #65e869;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider:before {
+  content: "";
+  display: block;
+  height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: background-color 0.4s;
+}
+
+
+
+
+/*Estilo para botón del DarkMode*/
+#dark-mode-button {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#dark-mode-button img {
+  width: 75px;
+  height: 48px;
+  margin-right: 5px;
+  padding-bottom: 18px;
+}
+
+.ingles{
+  padding-bottom: 25px;
+}
